@@ -1,4 +1,3 @@
 # Machine-Learning
 Machine Learning [practices and courses] - Andrew Ng - Coursera
-![header](./images/header.png)
-<img src = "./images/header.png" width=800px>
+<img src="./images/header.png" alt="Girl in a jacket" width="1000" >
