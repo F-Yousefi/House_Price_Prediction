@@ -53,16 +53,17 @@ As you can see above, you can choose either Linear Regression to be based on Gra
 ```
 !python train.py -p "./dataset/divar_tehran_dataset/DivarHousePrice.csv" -m "gradient-descent"
 ```  
-<img src="./images/training_process_GD.gif" alt="training_process_GD.gif" width="400" ><br><br>
+<img src="./images/training_process_GD.gif" alt="training_process_GD.gif" width="600" ><br><br>
 
 ### Colaboratory Notebook
 Second way to train Linear Regression is to use the `.ipynb` file in the main directory. It is very informative and build up your intuition of the process of pre-processing and make you more knowledgable about the dataset. In addition, you don't even need to clone the repository it can be executed by Google Colaboratory Online.
 <br><br>
 
-<center><img src="./images/notebook_visualize.gif" alt="notebook_visualize.gif" width="700" ></center>
+<center>
+ <img src="./images/notebook_visualize.gif" alt="notebook_visualize.gif" width="700" >
+</center>
 
-
-##Refrences:
+## Refrences:
 
 The following list contains the link to every resource that helped us implement this project.
 
