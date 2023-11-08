@@ -65,7 +65,7 @@ Second way to train Linear Regression is to use the `.ipynb` file in the main di
 
 ## Refrences:
 
-The following list contains the link to every resource that helped us implement this project.
+The following list contains several links to every resource that helped us implement this project.
 
 1.   [Kaggle dataset created and developed by Soheil Tehranipour ](https://www.kaggle.com/datasets/soheiltehranipour/divar-posts)
 2.   [Maths-MLMaths-ML developed by Farzad Yousefi ](https://github.com/F-Yousefi/Maths-ML)
