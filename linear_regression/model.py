@@ -1,7 +1,5 @@
-import pickle
+"""This module contains the class of Linear regression model."""
 import numpy as np
-from sklearn.preprocessing import normalize
-
 
 
 class LinearRegression:
@@ -12,8 +10,33 @@ class LinearRegression:
         self.__weights = 0
         self.__intecept = 0
 
+    def score(self, x, y_true):
+        y_pred = np.transpose(
+            np.dot(
+                self.__weights,
+                np.transpose(x))) + self.__intecept
+        score = 1 - (((y_true - y_pred) ** 2).sum()) / \
+            (((y_true - y_true.mean()) ** 2).sum())
+        return score
+
+    def predict(self, x):
+        return np.transpose(
+            np.dot(
+                self.__weights,
+                np.transpose(x))) + self.__intecept
+
+    def get_report(self):
+        return self.__repo
+
+    def set_params(self, w, b, rpo_obj):
+        self.__repo = rpo_obj
+        self.__weights = w
+        self.__intecept = b
+
+
+class LinearRegressionGD(LinearRegression):
+
     def fit(self, x, y, alpha=0.7, acceptable_cost=0.1e-5):
-        x, y = self.__norm(x, y)
         costs = []
         rpo_obj = {}
         w = np.random.rand(1, x.shape[1])
@@ -36,49 +59,41 @@ class LinearRegression:
                 if i % 100 == 0 and i >= 100:
                     costs.append(cost)
                     print(
-                        "ITERATION: #{1} ,\n COST: {0},\n COEFFICIENT VALUE: {2},\n \
-                        INTERCEPT VALUE: {3} \n ====================" .format(
-                            np.round(
-                                cost, 4), i, np.round(
+                        "ITERATION: #{1} ,\n COST: {0},\n COEFFICIENT VALUE: {2},\
+                        \n INTERCEPT VALUE: {3} \n ====================" .format(
+                            round(
+                                cost[0], 7), i, np.round(
                                 w, 7), np.round(
                                 b, 7)))
 
             else:
+                print("\nThe training process has been finished.......\n")
                 break
 
         rpo_obj["costs"] = costs
         rpo_obj["weights"] = w
         rpo_obj["intercept"] = b
-        self.__repo = rpo_obj
-        self.__weights = w
-        self.__intecept = b
+        self.set_params(w, b, rpo_obj)
+
         return self
 
-    def __norm(self, x, y):
-        xmax = np.max(x, axis=0)
-        ymax = np.max(y, axis=0)
-        x = normalize(x, axis=0, norm='max')
-        y = normalize(y, axis=0, norm='max')
-        self.__params = (x, y, xmax, ymax)
 
-        return x, y
+class LinearRegressionNE(LinearRegression):
 
-    def predict(self, x):
-        x /= self.__params[2]
-        p = np.transpose(
-            np.dot(
-                self.__weights,
-                np.transpose(x))) + self.__intecept
-        p *= self.__params[3]
-        return int(p[0])
+    def fit(self, x, y):
+        x = np.c_[np.ones((x.shape[0], 1)), x]
+        x_transpose = np.transpose(x)
+        x_transpose_x = np.dot(x_transpose, x)
+        x_transpose_y = np.dot(x_transpose, y)
+        rpo_obj = {}
 
-    def get_report(self):
-        return self.__repo
+        try:
+            theta = np.linalg.solve(x_transpose_x, x_transpose_y)
+            rpo_obj["weights"] = theta[1:].T
+            rpo_obj["intercept"] = theta[0]
+            w, b = theta[1:].T, theta[0]
+            self.set_params(w, b, rpo_obj)
+            return self
 
-    def get_params(self):
-        return self.__params
-
-    def save(self, path):
-        with open('{0}.pickle'.format(path), 'wb') as handle:
-            pickle.dump(self, handle, protocol=pickle.HIGHEST_PROTOCOL)
-            print("Model Is Saved.{0}".format('{0}.pickle'.format(path)))
+        except np.linalg.LinAlgError:
+            return None

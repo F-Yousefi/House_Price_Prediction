@@ -2,21 +2,24 @@
 """Module providing a machine learning model powered by linear regression."""
 import os
 from optparse import OptionParser
-from linear_regression.config import Config
-from linear_regression.model import LinearRegression
+from dataset.config import Config
 from dataset.dataset import data_loader, divar_dataset_correction
-from utils import cost_plotter, scikit_truth_weights
+from linear_regression.model import LinearRegressionGD, LinearRegressionNE
+from sklearn.preprocessing import normalize
+import warnings
+warnings.filterwarnings('ignore')
 
 
 parser = OptionParser()
 parser.add_option("-p", "--path", dest="train_path",
                   help="Path to training data.", default=None)
 parser.add_option(
-    "-s",
-    "--save",
-    dest="model_save_path",
-    help="filname for saving Model. You will need this option to predict.",
-    default="LinearRegression")
+    "-m",
+    "--method",
+    dest="method",
+    help="choose between \'normal-equation\' and \'gradient-descent\'\
+                  default value is \'normal-equation\' ",
+    default="normal-equation")
 
 (options, args) = parser.parse_args()
 
@@ -35,18 +38,35 @@ if options.train_path is not None:
 else:
     TRAIN_DATA_PATH = config.train_data_path
 
-if options.model_save_path is not None:
-    SAVE_PATH = options.model_save_path
+METHOD = options.method
+
 
 ds = data_loader(TRAIN_DATA_PATH)
 x, y = divar_dataset_correction(ds)
+del ds
 
-model = LinearRegression()
-model = model.fit(x, y)
-repo = model.get_report()
-x, y = model.get_params()[0:2]
-cost_plotter(repo)
-scikit_truth_weights(x, y, repo)
+x_norm = normalize(x, axis=0, norm="max")
+y_norm = normalize(y, axis=0, norm="max")
+del x, y
 
-if SAVE_PATH is not None:
-    model.save(SAVE_PATH)
+print("\nSelected Method: ", METHOD)
+
+if METHOD == "gradient-descent":
+    model = LinearRegressionGD()  # Using the Gradient Descent method
+    model = model.fit(x_norm, y_norm, alpha=0.54, acceptable_cost=1e-5)
+    MESSAGE = "\nThe best possible score is 1.0 and it can be negative (because the\
+      \nmodel can be arbitrarily worse). A constant model that always predicts\
+      \nthe expected value of y, disregarding the input features, would get\
+      \na R^2 score of 0.0."
+    print(MESSAGE)
+    print("\nSCORE : ", model.score(x_norm, y_norm))
+
+elif METHOD == "normal-equation":
+    model = LinearRegressionNE()  # Using the Gradient Descent method
+    model = model.fit(x_norm, y_norm)
+    MESSAGE = "\nThe best possible score is 1.0 and it can be negative (because the\
+      \nmodel can be arbitrarily worse). A constant model that always predicts\
+      \nthe expected value of y, disregarding the input features, would get\
+      \na R^2 score of 0.0."
+    print(MESSAGE)
+    print("\nSCORE : ", model.score(x_norm, y_norm))
