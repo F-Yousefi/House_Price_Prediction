@@ -1,4 +1,5 @@
 <img src="./images/header.png" alt="header.png" width="1000" >
+
 # House Price Prediction using Linear Regression
 This repository contains code for House Price prediction using Linear Regression. This project is based on the dataset that can be found throug [Tehran (Divar.ir) House Price Prediction](https://www.kaggle.com/code/soheiltehranipour/tehran-divar-ir-house-price-prediction) thanks to [Dr. Soheil Tehranipour](https://www.kaggle.com/soheiltehranipour) who has done a very excellent job in the area of AI and ML. The current repository contains detailed description of the process of preprocessing of visualization the dataset. This repository also contains a stable version of Linear Regression that can be used in the other projects related to Machine Learning.
 
@@ -52,13 +53,13 @@ As you can see above, you can choose either Linear Regression to be based on Gra
 ```
 !python train.py -p "./dataset/divar_tehran_dataset/DivarHousePrice.csv" -m "gradient-descent"
 ```  
-<img src="./images/training_process_GD.gif" alt="training_process_GD.gif" width="1000" ><br><br>
+<img src="./images/training_process_GD.gif" alt="training_process_GD.gif" width="400" ><br><br>
 
 ### Colaboratory Notebook
 Second way to train Linear Regression is to use the `.ipynb` file in the main directory. It is very informative and build up your intuition of the process of pre-processing and make you more knowledgable about the dataset. In addition, you don't even need to clone the repository it can be executed by Google Colaboratory Online.
 <br><br>
 
-<img src="./images/notebook_visualize.gif" alt="notebook_visualize.gif" width="1000" >
+<center><img src="./images/notebook_visualize.gif" alt="notebook_visualize.gif" width="700" ></center>
 
 
 ##Refrences:
