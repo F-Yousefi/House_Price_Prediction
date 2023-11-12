@@ -36,7 +36,7 @@ This project does not need any specific requirements. The dataset, ["Tehran (Div
 
 ## Training Linear Regression
 - We assume that you have cloned the repository.
-- To train Linear Regression using terminal, we assume that the dataset is place in `./dataset/divar_tehran_dataset/`, so you should simply run the following command. `!python train.py`
+- To train Linear Regression using the terminal environment, we assume that the dataset is placed in `./dataset/divar_tehran_dataset/`, so you should simply run the following command. `!python train.py`
 By running the following command, you will get more information about the module.
 ```
 >!python train.py -help 
