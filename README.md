@@ -13,7 +13,7 @@ This repository contains code for House Price prediction using Linear Regression
 
 
 ## Requirements
-This project does not need any specific requiarements. The dataset, ["Tehran (Divar.ir) House Price Prediction"](https://www.kaggle.com/code/soheiltehranipour/tehran-divar-ir-house-price-prediction), also is included in the repository.
+This project does not need any specific requirements. The dataset, ["Tehran (Divar.ir) House Price Prediction"](https://www.kaggle.com/code/soheiltehranipour/tehran-divar-ir-house-price-prediction), also is included in the repository.
 <br><br>
 
 
