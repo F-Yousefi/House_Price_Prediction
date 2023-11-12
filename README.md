@@ -67,7 +67,7 @@ The Second way to train Linear Regression is to use the `.ipynb` file in the mai
 
 The following list contains several links to every resource that helped us implement this project.
 
-1.   [Kaggle dataset created and developed by Soheil Tehranipour ](https://www.kaggle.com/datasets/soheiltehranipour/divar-posts)
-2.   [Maths-MLMaths-ML developed by Farzad Yousefi ](https://github.com/F-Yousefi/Maths-ML)
-3.   [Machine Learning published by Coursera ](https://www.coursera.org/specializations/machine-learning-introduction)
+1.   [Kaggle dataset published by Soheil Tehranipour ](https://www.kaggle.com/datasets/soheiltehranipour/divar-posts)
+2.   [Maths-ML developed by Farzad Yousefi ](https://github.com/F-Yousefi/Maths-ML)
+3.   [Machine Learning course published by Coursera ](https://www.coursera.org/specializations/machine-learning-introduction)
 
