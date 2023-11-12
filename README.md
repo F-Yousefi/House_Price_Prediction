@@ -1,7 +1,7 @@
 <img src="./images/header.png" alt="header.png" width="1000" >
 
 # House Price Prediction using Linear Regression
-This repository contains code for House Price prediction using Linear Regression. This project is based on the dataset that can be found throug [Tehran (Divar.ir) House Price Prediction](https://www.kaggle.com/code/soheiltehranipour/tehran-divar-ir-house-price-prediction) thanks to [Dr. Soheil Tehranipour](https://www.kaggle.com/soheiltehranipour) who has done a very excellent job in the area of AI and ML. The current repository contains detailed description of the process of preprocessing of visualization the dataset. This repository also contains a stable version of Linear Regression that can be used in the other projects related to Machine Learning.
+This repository contains code for House Price prediction using Linear Regression. This project is based on the dataset that can be found through [Tehran (Divar.ir) House Price Prediction](https://www.kaggle.com/code/soheiltehranipour/tehran-divar-ir-house-price-prediction) thanks to [Dr. Soheil Tehranipour](https://www.kaggle.com/soheiltehranipour) who has done a very excellent job in the area of AI and ML. The current repository contains a detailed description of the process of visualization and preprocessing the dataset. This repository also contains a stable version of Linear Regression that can be used in other projects related to Machine Learning.
 
 
 
