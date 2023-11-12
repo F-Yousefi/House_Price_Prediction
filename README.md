@@ -56,7 +56,7 @@ As you can see above, you can choose either Linear Regression to be based on Gra
 <img src="./images/training_process_GD.gif" alt="training_process_GD.gif" width="600" ><br><br>
 
 ### Colaboratory Notebook
-Second way to train Linear Regression is to use the `.ipynb` file in the main directory. It is very informative and build up your intuition of the process of pre-processing and make you more knowledgable about the dataset. In addition, you don't even need to clone the repository it can be executed by Google Colaboratory Online.
+The Second way to train Linear Regression is to use the `.ipynb` file in the main directory. It is very informative and builds up your intuition of the process of pre-processing and makes you more knowledgeable about the dataset. In addition, you don't even need to clone the repository, because it can be executed by Google Colaboratory Online.
 <br><br>
 
 <center>
