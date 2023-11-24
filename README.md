@@ -63,7 +63,7 @@ The Second way to train Linear Regression is to use the `.ipynb` file in the mai
  <img src="./images/notebook_visualize.gif" alt="notebook_visualize.gif" width="700" >
 </center>
 
-## Refrences:
+## References:
 
 The following list contains several links to every resource that helped us implement this project.
 
